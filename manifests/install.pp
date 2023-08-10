@@ -10,7 +10,7 @@ class remote_syslog2::install inherits remote_syslog2::params {
   $temp_file_name = 'remote_syslog2.tar.gz'
   $temp_file = "${remote_syslog2::params::temp_dir}/${temp_file_name}"
 
-  wget::fetch { $url:
+  wget::retrieve { $url:
     destination => $temp_file,
   }
 
@@ -18,7 +18,7 @@ class remote_syslog2::install inherits remote_syslog2::params {
     command     => "tar -zxf ${temp_file}",
     cwd         => $remote_syslog2::params::install_dir,
     creates     => "${remote_syslog2::params::install_dir}/remote_syslog",
-    subscribe   => Wget::Fetch[$url],
+    subscribe   => Wget::Retrieve[$url],
     refreshonly => true,
   }
 }

@@ -4,7 +4,7 @@ fixtures:
   forge_modules:
     stdlib:
       repo: "puppetlabs/stdlib"
-      ref: "4.8.0"
+      ref: "5.2.0"
     wget:
-      repo: "maestrodev/wget"
-      ref: "1.7.0"
+      repo: "rehan/wget"
+      ref: "1.3.3"

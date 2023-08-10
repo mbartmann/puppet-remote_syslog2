@@ -10,14 +10,14 @@ class remote_syslog2::params {
   $install_dir             = '/usr/local/bin'
   $config_file             = '/etc/log_files.yml'
   $config_file_template    = 'remote_syslog2/log_files.yml.erb'
-  $new_file_check_interval = 10
+  $new_file_check_interval = '10'
   $temp_dir                = '/tmp'
   $version                 = 'v0.16'
   $service_ensure          = 'running'
 
   case $::operatingsystem {
     'Ubuntu': {
-      $service_provider = upstart
+      $service_provider = 'upstart'
       $service_template = 'remote_syslog2/remote_syslog2.upstart.conf.erb'
       $service_file     = '/etc/init/remote_syslog2.conf'
     }

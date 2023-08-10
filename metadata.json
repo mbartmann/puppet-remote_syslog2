@@ -1,20 +1,20 @@
 {
-  "name": "netflower-remote_syslog2",
-  "version": "0.0.4",
-  "author": "netflower",
+  "name": "mbartmann-remote_syslog2",
+  "version": "0.0.1",
+  "author": "mbartmann",
   "summary": "Install and configure Papertrail's remote_syslog2",
   "license": "MIT",
-  "source": "https://github.com/netflower/puppet-remote_syslog2",
-  "project_page": "https://github.com/netflower/puppet-remote_syslog2",
-  "issues_url": "https://github.com/netflower/puppet-remote_syslog2/issues",
+  "source": "https://github.com/mbartmann/puppet-remote_syslog2",
+  "project_page": "https://github.com/mbartmann/puppet-remote_syslog2",
+  "issues_url": "https://github.com/mbartmann/puppet-remote_syslog2/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_range": ">= 4.8.0"
+      "version_range": ">= 5.2.0"
     },
     {
-      "name": "maestrodev-wget",
-      "version_range": ">= 1.7.0"
+      "name": "rehan-wget",
+      "version_range": ">= 1.3.3"
     }
   ],
   "operatingsystem_support": [
@@ -24,7 +24,7 @@
     },
     {
     "operatingsystem": "Ubuntu",
-    "operatingsystemrelease": [ "12.04", "14.04" ]
+    "operatingsystemrelease": [ "12.04", "14.04", "16.04", "18.04" ]
     }
    ]
 }
