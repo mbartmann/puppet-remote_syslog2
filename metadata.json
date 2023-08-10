@@ -1,6 +1,6 @@
 {
   "name": "mbartmann-remote_syslog2",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "mbartmann",
   "summary": "Install and configure Papertrail's remote_syslog2",
   "license": "MIT",
