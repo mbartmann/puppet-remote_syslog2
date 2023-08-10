@@ -1,6 +1,6 @@
 # remote_syslog2
 
-[![Build Status](https://travis-ci.org/netflower/puppet-remote_syslog2.svg)](https://travis-ci.org/netflower/puppet-remote_syslog2)
+[![Build Status](https://travis-ci.org/mbartmann/puppet-remote_syslog2.svg)](https://travis-ci.org/mbartmann/puppet-remote_syslog2)
 
 Puppet module to install and manage [remote_syslog2][remote_syslog2].
 
@@ -35,7 +35,7 @@ class { 'remote_syslog2':
   hostname                => undef,
   install_dir             => '/usr/local/bin',
   config_file             => '/etc/log_files.yml',
-  new_file_check_interval => 10,
+  new_file_check_interval => '10',
   temp_dir                => '/tmp',
   version                 => 'v0.16',
   service_ensure          = 'running',

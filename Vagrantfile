@@ -11,10 +11,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # https://github.com/joebew42/diaspora-replica/issues/10
   if Vagrant.has_plugin?('vagrant-puppet-install')
-    config.puppet_install.puppet_version = '3.7.3'
+    config.puppet_install.puppet_version = '4.10.12'
   end
 
-  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
+  config.vm.box = "puppetlabs/ubuntu-18.04-64-puppet"
 
   config.vm.synced_folder "./", "/etc/puppet/modules/remote_syslog2"
 

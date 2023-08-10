@@ -1,21 +1,22 @@
 require 'spec_helper'
 
 describe 'remote_syslog2::config' do
-  it { should contain_file('/etc/log_files.yml') }
+  on_supported_os.each do |os, os_facts|
+    let(:facts) { os_facts }
 
-  context 'on Ubuntu' do
-    let(:facts) { {:osfamily => 'Debian', :operatingsystem => 'Ubuntu'} }
+    context "on #{os}" do
+      it { should contain_file('/etc/log_files.yml') }
+    end
 
-    it { should contain_file('/etc/init/remote_syslog2.conf').with({
-        'content' => /pre-start exec/})
-    }
-  end
-
-  context 'on Debian' do
-    let(:facts) { {:osfamily => 'Debian'} }
-
-    it { should contain_file('/etc/init.d/remote_syslog2').with({
-        'content' => /### BEGIN INIT INFO/})
-    }
+    case os_facts[:operatingsystem]
+    when 'Ubuntu'
+      it { should contain_file('/etc/init/remote_syslog2.conf').with({
+          'content' => /pre-start exec/})
+      }
+    when ''
+      it { should contain_file('/etc/init.d/remote_syslog2').with({
+          'content' => /### BEGIN INIT INFO/})
+      }
+    end
   end
 end
