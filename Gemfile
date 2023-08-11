@@ -13,4 +13,5 @@ gem 'puppetlabs_spec_helper' , '~> 4.0.1'
 gem 'rspec'                  , '~> 3.12.0'
 gem 'rspec-puppet'           , '~> 2.12.0'
 gem 'rspec-puppet-facts'     , :require => false
+gem 'metadata-json-lint'
 gem 'simplecov'
