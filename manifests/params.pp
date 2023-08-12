@@ -15,11 +15,22 @@ class remote_syslog2::params {
   $version                 = 'v0.21'
   $service_ensure          = 'running'
 
-  case $::operatingsystem {
+    case $::operatingsystem {
     'Ubuntu': {
-      $service_provider = 'upstart'
-      $service_template = 'remote_syslog2/remote_syslog2.upstart.conf.erb'
-      $service_file     = '/etc/init/remote_syslog2.conf'
+      if (versioncmp($facts['os']['release']['full'], '15.04') < 0) {
+        $service_provider = 'upstart'
+        $service_template = 'remote_syslog2/remote_syslog2.upstart.conf.erb'
+        $service_file     = '/etc/init/remote_syslog2.conf'
+      } else {
+        $service_provider = 'systemd'
+        $service_template = 'remote_syslog2/remote_syslog2.systemd.erb'
+        $service_file     = '/etc/systemd/system/remote_syslog2.service'
+      }
+    }
+    'Debian': {
+      $service_provider = 'systemd'
+      $service_template = 'remote_syslog2/remote_syslog2.systemd.erb'
+      $service_file     = '/etc/systemd/system/remote_syslog2.service'
     }
     default: {
       $service_provider = undef
