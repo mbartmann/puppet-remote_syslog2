@@ -5,24 +5,5 @@ before_install:
 matrix:
   fast_finish: true
   include:
-  - rvm: 2.4.10
-    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-  - rvm: 2.6.5
-    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-  - rvm: 2.7.8
-    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-  - rvm: 3.0.6
-    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-  - rvm: 3.1.4
-    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-  - rvm: 3.2.2
-    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-  allow_failures:
-    - rvm: 2.7.8
-      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-    - rvm: 3.0.6
-      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-    - rvm: 3.1.4
-      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
-    - rvm: 3.2.2
-      env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes"
+  - rvm: 3.2.4
+    env: PUPPET_VERSION="~> 8.0" STRICT_VARIABLES="yes"

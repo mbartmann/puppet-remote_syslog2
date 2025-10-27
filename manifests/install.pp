@@ -5,8 +5,9 @@ class remote_syslog2::install inherits remote_syslog2::params {
     path => '/usr/bin:/bin:/usr/sbin:/sbin'
   }
 
-  $downcase_kernel = downcase($::kernel)
-  $url = "https://github.com/papertrail/remote_syslog2/releases/download/${remote_syslog2::params::version}/remote_syslog_${downcase_kernel}_${::architecture}.tar.gz"
+  $downcase_kernel = downcase($facts['kernel'])
+  $platform_arch   = pick_default($remote_syslog2::params::architecture, 'amd64')
+  $url = "https://github.com/papertrail/remote_syslog2/releases/download/${remote_syslog2::params::version}/remote_syslog_${downcase_kernel}_${platform_arch}.tar.gz"
   $temp_file_name = 'remote_syslog2.tar.gz'
   $temp_file = "${remote_syslog2::params::temp_dir}/${temp_file_name}"
 

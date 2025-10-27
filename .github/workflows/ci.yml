@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - puppet8-upgrade
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version: ['3.2']
+        puppet-version: ['~> 8.0']
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          bundle config set --local path vendor/gems
+          bundle install --jobs 4 --retry 3
+
+      - name: Run metadata lint
+        run: bundle exec metadata-json-lint metadata.json
+
+      - name: Run spec tests
+        env:
+          PUPPET_VERSION: ${{ matrix.puppet-version }}
+          STRICT_VARIABLES: yes
+        run: |
+          bundle exec rake spec_prep
+          bundle exec rake spec
+
+      - name: Run puppet-lint
+        run: bundle exec puppet-lint manifests
