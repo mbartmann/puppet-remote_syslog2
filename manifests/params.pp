@@ -14,6 +14,7 @@ class remote_syslog2::params {
   $temp_dir                = '/tmp'
   $version                 = 'v0.21'
   $service_ensure          = 'running'
+  $architecture            = $facts['os']['architecture']
 
   $os_name    = $facts['os']['name']
   $os_release = $facts['os']['release']['full']

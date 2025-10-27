@@ -38,24 +38,26 @@ class remote_syslog2 (
   Enum['running', 'stopped'] $service_ensure    = $remote_syslog2::params::service_ensure,
   Stdlib::Absolutepath $service_file            = $remote_syslog2::params::service_file,
   Stdlib::Absolutepath $temp_dir                = $remote_syslog2::params::temp_dir,
-  String[1] $version                             = $remote_syslog2::params::version,
+  String[1] $version                            = $remote_syslog2::params::version,
+  Optional[String[1]] $architecture             = $remote_syslog2::params::architecture,
+  Optional[String[1]] $service_provider         = $remote_syslog2::params::service_provider,
 ) inherits remote_syslog2::params {
 
   class { 'remote_syslog2::install': }
 
   class { 'remote_syslog2::config':
-    config_file        => $config_file,
+    config_file          => $config_file,
     config_file_template => $remote_syslog2::params::config_file_template,
-    files              => $files,
-    exclude_files      => $exclude_files,
-    exclude_patterns   => $exclude_patterns,
-    hostname           => $hostname,
-    destination_host   => $destination_host,
-    destination_port   => $destination_port,
+    files                => $files,
+    exclude_files        => $exclude_files,
+    exclude_patterns     => $exclude_patterns,
+    hostname             => $hostname,
+    destination_host     => $destination_host,
+    destination_port     => $destination_port,
     destination_protocol => $destination_protocol,
-    service_file       => $service_file,
-    service_template   => $remote_syslog2::params::service_template,
-    install_dir        => $install_dir,
+    service_file         => $service_file,
+    service_template     => $remote_syslog2::params::service_template,
+    install_dir          => $install_dir,
   }
 
   class { 'remote_syslog2::service':
