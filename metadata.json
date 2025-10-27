@@ -7,10 +7,16 @@
   "source": "https://github.com/mbartmann/puppet-remote_syslog2",
   "project_page": "https://github.com/mbartmann/puppet-remote_syslog2",
   "issues_url": "https://github.com/mbartmann/puppet-remote_syslog2/issues",
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 7.0.0 < 9.0.0"
+    }
+  ],
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 5.2.0"
+      "version_requirement": ">= 9.0.0 < 10.0.0"
     },
     {
       "name": "rehan-wget",
@@ -20,11 +26,11 @@
   "operatingsystem_support": [
     {
     "operatingsystem":"Debian",
-    "operatingsystemrelease":[ "8", "9" ]
+    "operatingsystemrelease":[ "10", "11", "12" ]
     },
     {
     "operatingsystem": "Ubuntu",
-    "operatingsystemrelease": [ "14.04", "16.04", "18.04" ]
+    "operatingsystemrelease": [ "18.04", "20.04", "22.04" ]
     }
    ]
 }

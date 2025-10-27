@@ -15,9 +15,12 @@ class remote_syslog2::params {
   $version                 = 'v0.21'
   $service_ensure          = 'running'
 
-    case $::operatingsystem {
+  $os_name    = $facts['os']['name']
+  $os_release = $facts['os']['release']['full']
+
+  case $os_name {
     'Ubuntu': {
-      if (versioncmp($facts['os']['release']['full'], '15.04') < 0) {
+      if versioncmp($os_release, '15.04') < 0 {
         $service_provider = 'upstart'
         $service_template = 'remote_syslog2/remote_syslog2.upstart.conf.erb'
         $service_file     = '/etc/init/remote_syslog2.conf'

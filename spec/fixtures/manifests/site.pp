@@ -1,4 +1,1 @@
-class { 'remote_syslog2':
-  destination_port => 55555,
-  files            => ['/var/log/syslog'],
-}
+# Intentionally left blank. Individual specs declare the classes they need.

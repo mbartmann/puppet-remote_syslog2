@@ -1,17 +1,19 @@
 source "https://rubygems.org"
 
-if ENV.key?('PUPPET_VERSION')
-  puppetversion = "#{ENV['PUPPET_VERSION']}"
-else
-  puppetversion = ['~> 4.10.12']
-end
+ruby '>= 3.2.0', '< 3.3.0'
+
+puppetversion = if ENV.key?('PUPPET_VERSION')
+                  ENV['PUPPET_VERSION']
+                else
+                  '~> 8.0'
+                end
 
 gem 'json'
 gem 'puppet'                 , puppetversion
-gem 'puppet-lint'
-gem 'puppetlabs_spec_helper' , '~> 4.0.1'
-gem 'rspec'                  , '~> 3.12.0'
-gem 'rspec-puppet'           , '~> 2.12.0'
-gem 'rspec-puppet-facts'     , :require => false
-gem 'metadata-json-lint'
-gem 'simplecov'
+gem 'puppet-lint'            , '~> 4.0'
+gem 'puppetlabs_spec_helper' , '~> 6.0'
+gem 'rspec'                  , '~> 3.12'
+gem 'rspec-puppet'           , '~> 4.0'
+gem 'rspec-puppet-facts'     , '~> 6.0', :require => false
+gem 'metadata-json-lint'     , '~> 3.0'
+gem 'simplecov'              , :require => false

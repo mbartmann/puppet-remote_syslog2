@@ -13,3 +13,5 @@ Puppetfile.lock
 # Ignore installed modules. We need the modules dir for puppet provisioning.
 modules/stdlib
 modules/wget
+spec/fixtures/modules/
+spec/puppet-*/
