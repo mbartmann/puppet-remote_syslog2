@@ -1,6 +1,6 @@
 # remote_syslog2
 
-[![Build Status](https://travis-ci.org/mbartmann/puppet-remote_syslog2.svg)](https://travis-ci.org/mbartmann/puppet-remote_syslog2)
+![CI](https://github.com/mbartmann/puppet-remote_syslog2/actions/workflows/ci.yml/badge.svg)
 
 Puppet module to install and manage [remote_syslog2][remote_syslog2].
 
